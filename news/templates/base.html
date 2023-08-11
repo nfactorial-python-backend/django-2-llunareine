@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'news/style.css' %}">
+</head>
+<body>
+<header>
+    <nav>
+        <a href="#"><img src="{% static 'img/logo.png' %}" alt="" class="logo"></a>
+        <div class="navbar">
+            <a href="#"><img src="{% static 'img/ahref_news.png' %}" alt=""></a>
+            <a href="#"><img src="{% static 'img/POST NEWS (1).png' %}" alt=""></a>
+        </div>
+    </nav>
+</header>
+<div class="cont">
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</div>
+<section>
+    <img class="margo" src="{% static 'img/margo.png' %}" alt="Margo Image">
+    <img class="ryan" src="{% static 'img/ryan.png' %}" alt="Ryan Image">
+</section>
+</body>
+</html>

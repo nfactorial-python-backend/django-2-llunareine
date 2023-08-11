@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="card">
+        {% for news_item in news_list %}
+
+            <div class="news-card">
+                <img src="img/channels4_profile.jpg"/>
+                <div class="news-text">
+                <a href="{% url 'news:news_detail' news_item.pk %}">{{ news_item.title }}</a>
+                <p>Created at: {{ news_item.created_at }}</p>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+
+{% endblock %}

@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Flow+Circular&family=Montserrat:ital,wght@0,300;1,600&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Flow Circular', cursive;
+    font-family: 'Montserrat', sans-serif;    text-decoration: none;
+    box-sizing: border-box;
+    background-color: #F0B7EA;
+}
+
+header {
+    background-color: #FFA9D8;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.7);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+}
+.navbar {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.navbar a {
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.navbar img {
+    height: 30px;
+}
+
+nav .logo {
+    margin-left: 50px;
+}
+
+section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: -5;
+}
+
+.margo {
+    margin-top: 470px;
+}
+.ryan{
+    margin-top: 30px;
+}
+.cont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #FFA9C3;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.3);
+    width: 65%;
+    height: auto;
+    z-index: 6;
+}
+
+.news-card{
+    width: 400px;
+    background-color: #F39CE5;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.news-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 6px;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.news-text {
+    flex: 1;
+}
+
+.news-text h2 {
+    margin-top: 0;
+}
+
+.news-text p {
+    margin-bottom: 0;
+}
+
+
+
+.card{
+    margin-top: 15px;
+}
+
+
+
+
+
+
+/* Detaillll*/
+
+.container-news {
+   display: flex;
+   margin-bottom: 20px;
+   margin-left: 50px;
+   margin-right: 50px;
+}
+
+.container-news img {
+    max-width: 300px;
+    margin-right: 20px;
+    border: 1px solid #ccc;
+}
+
+
+.container-news h2.Title {
+    font-size: 30px;
+    margin: 0;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.container-news p {
+    font-size: 16px;
+    color: #000000;
+    margin: 0;
+    text-align: center;
+}
+
+hr{
+    width: 92%;
+    border-color: #1a1a1a;
+    margin-top: 90px;
+}
+.container-comment {
+    margin-top: 30px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.container-comment h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.container-comment form {
+    margin-bottom: 15px;
+}
+
+.container-comment input {
+    width: 50%;
+    padding: 10px;
+    border: 10px solid #F39CE5;
+    border-radius: 20px;
+    background-color: #e9e9e9;
+}
+
+.comment-box {
+    padding: 10px;
+    margin-top: 10px;
+    margin-left: 50px;
+    margin-right: 50px;
+    background-color: #F39CE5;
+    border-radius: 10px;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.3);
+}
+.comment-box p.content {
+    margin: 5px 0;
+}
+
+/*POST*/
+
+.post-container {
+    background: #FFA9C3;
+    border-radius: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 5px 10px 5px rgba(213, 81, 81, 0.22);
+}
+
+.post-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.post-container input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 3px solid #FF1B7B;
+    border-radius: 20px;
+}
+
+.post-container input[type="submit"] {
+    background-color: #FF1B7B;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    width: 30%;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.post-container input[type="submit"]:hover {
+    background-color: #e90061;
+}
+.send{
+    display: flex;
+    justify-content: center;
+}
+
+.post{
+    width: 50%;
+    align-items: center;
+}
+
+#title::placeholder,
+#content::placeholder {
+    color: #e90061;
+    font-weight: bold;
+}
+
+
+
+.post-logo-container{
+    display: flex;
+    justify-content: center;
+}
