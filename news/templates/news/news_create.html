@@ -1,40 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-    </style>
-</head>
-<body>
-<header>
-    <nav>
-        <a href="#"><img src="img/logo.png" alt="" class="logo"></a>
-        <div class="navbar">
-            <a href="#"><img src="img/ahref_news.png" alt=""></a>
-            <a href="#"><img src="img/POST NEWS (1).png" alt=""></a>
-        </div>
-    </nav>
-</header>
-<div class="cont"></div>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
 <div class="post-container">
     <div class="post-logo-container">
-        <img src="img/Post News.png" class="post">
+        <img src="{% static 'img/POST.png' %}" alt="Post Logo">
     </div>
-    <form>
-        <input id="title" placeholder="TITLE">
-        <input id="content" placeholder="CONTENT">
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" id="title" name="title" placeholder="Title" required>
+        <textarea id="content" name="content" placeholder="Content" rows="6" required></textarea>
         <div class="send">
-            <input type="submit" value="SEND">
+            <button type="submit">SEND</button>
         </div>
     </form>
-
 </div>
-<section>
-    <img class="margo" src="img/margo.png" alt="Margo Image">
-    <img class="ryan" src="img/ryan.png" alt="Ryan Image">
-</section>
-</body>
-</html>
+{% endblock %}

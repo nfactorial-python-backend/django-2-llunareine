@@ -1,76 +1,34 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
-<!--    <title>Document</title>-->
-<!--    <link rel="stylesheet" href="style.css">-->
-<!--</head>-->
-<!--<body>-->
-<!--<header>-->
-<!--    <nav>-->
-<!--        <a href="#"><img src="img/logo.png" alt="" class="logo"></a>-->
-<!--        <div class="navbar">-->
-<!--            <a href="#"><img src="img/ahref_news.png" alt=""></a>-->
-<!--            <a href="#"><img src="img/POST NEWS (1).png" alt=""></a>-->
-<!--        </div>-->
-<!--    </nav>-->
-<!--</header> -->
-<!--<div class="cont">-->
-<!--    <div class="container">-->
-
 {% extends 'base.html' %}
 {% load static %}
-{% block content %}
 
-        <div class="card">
-            <div class="container-news">
-                <img src="img/channels4_profile.jpg">
-                <div>
-                       <h1>{{ news.title }}</h1>
-                        <p>{{ news.content }}</p>
-                        <p>Created at: {{ news.created_at }}</p>
-                        <a href="{% url 'news:index' %}">Back to News List</a>
-                </div>
+{% block content %}
+<div class="card">
+    <div class="container-news">
+        <div>
+            <h2 class="Title">{{ news.title }}</h2>
+            <p>{{ news.content }}</p>
+            <p>created at: {{ news.created_at }}</p>
+        </div>
+    </div>
+
+    <hr>
+    <div class="container-comment">
+        <div>
+            <h2>Comments</h2>
+            <form method="post">
+                {% csrf_token %}
+                <textarea name="content" placeholder="Comment" rows="4" cols="50"></textarea><br>
+                <button type="submit">Add Comment</button>
+            </form>
+        </div>
+        <div class="comment-box">
+            {% for comment in comments %}
+            <div class="comment">
+                <h3>{{ comment.content }}</h3>
+                <p>created at: {{ comment.created_at }}</p>
             </div>
-            {% endblock %}
-<!--            -->
-<!--            <hr>-->
-<!--            <div class="container-comment">-->
-<!--                <div cla>-->
-<!--                    <h2>Comments</h2>-->
-<!--                    <form>-->
-<!--                        <input placeholder="Comment">-->
-<!--                    </form>-->
-<!--                </div>-->
-<!--                <div class="comment-box">-->
-<!--                    <p class="contnet">Why do we use it?-->
-<!--                        It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).-->
-<!--                    </p>-->
-<!--                </div>-->
-<!--                <div class="comment-box">-->
-<!--                    <p class="contnet">Why do we use it?-->
-<!--                        It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).-->
-<!--                    </p>-->
-<!--                </div>-->
-<!--                <div class="comment-box">-->
-<!--                    <p class="contnet">Why do we use it?-->
-<!--                        It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).-->
-<!--                    </p>-->
-<!--                </div>-->
-<!--                <div class="comment-box">-->
-<!--                    <p class="contnet">Why do we use it?-->
-<!--                        It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).-->
-<!--                    </p>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-<!--<section>-->
-<!--    <img class="margo" src="img/margo.png" alt="Margo Image">-->
-<!--    <img class="ryan" src="img/ryan.png" alt="Ryan Image">-->
-<!--</section>-->
-<!--</body>-->
-<!--</html>-->
-<!--&gt;-->
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

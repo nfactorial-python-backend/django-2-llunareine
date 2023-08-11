@@ -12,8 +12,8 @@
     <nav>
         <a href="#"><img src="{% static 'img/logo.png' %}" alt="" class="logo"></a>
         <div class="navbar">
-            <a href="#"><img src="{% static 'img/ahref_news.png' %}" alt=""></a>
-            <a href="#"><img src="{% static 'img/POST NEWS (1).png' %}" alt=""></a>
+            <a href="{% url 'news:index' %}"><img src="{% static 'img/ahref_news.png' %}" alt=""></a>
+            <a href="{% url 'news:add_news' %}"><img src="{% static 'img/POST NEWS (1).png' %}" alt=""></a>
         </div>
     </nav>
 </header>
