@@ -8,11 +8,10 @@
     </div>
     <form method="post">
         {% csrf_token %}
-        <input type="text" id="title" name="title" placeholder="Title" required>
-        <textarea id="content" name="content" placeholder="Content" rows="6" required></textarea>
-        <div class="send">
-            <button type="submit">SEND</button>
-        </div>
+        {{ form.as_p }}
+        <button type="submit">Add News</button>
     </form>
+</div>
+</form>
 </div>
 {% endblock %}
