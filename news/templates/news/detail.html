@@ -8,6 +8,12 @@
             <h2 class="Title">{{ news.title }}</h2>
             <p>{{ news.content }}</p>
             <p>created at: {{ news.created_at }}</p>
+            {% if user.is_authenticated and user == news.author %}
+            <form action="{% url 'news:news_delete' news_id=news.pk %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="delete-button">Delete News</button>
+            </form>
+            {% endif %}
         </div>
     </div>
 
@@ -15,17 +21,28 @@
     <div class="container-comment">
         <div>
             <h2>Comments</h2>
+            {% if user.is_authenticated %}
             <form method="post">
                 {% csrf_token %}
                 <textarea name="content" placeholder="Comment" rows="4" cols="50"></textarea><br>
                 <button type="submit">Add Comment</button>
             </form>
+            {% else %}
+            <p>Доступно для авторизованных.</p>
+            {% endif %}
         </div>
         <div class="comment-box">
             {% for comment in comments %}
             <div class="comment">
+                <p class="user">@{{comment.author.username}}</p>
                 <h3>{{ comment.content }}</h3>
                 <p>created at: {{ comment.created_at }}</p>
+                {% if user.is_authenticated and user == comment.author %}
+                <form action="{% url 'news:comment_delete' comment_id=comment.pk %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="delete-button">Delete Comment</button>
+                </form>
+                {% endif %}
             </div>
             {% endfor %}
         </div>

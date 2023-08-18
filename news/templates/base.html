@@ -15,6 +15,21 @@
             <a href="{% url 'news:index' %}"><img src="{% static 'img/ahref_news.png' %}" alt=""></a>
             <a href="{% url 'news:add_news' %}"><img src="{% static 'img/POST.png' %}" alt=""></a>
         </div>
+
+        {% if user.is_authenticated %}
+        <span class="navbar-text">
+                        Авторизован как @{{ user.username }}
+                    </span>
+
+        <li class="nav-item">
+            <a class="btn btn-outline-danger" href="{% url 'logout' %}">Выйти</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+            <a class="btn btn-outline-primary" href="{% url 'login' %}">Войти</a>
+        </li>
+        {% endif %}
+
     </nav>
 </header>
 <div class="cont">

@@ -1,12 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
 <h1>Edit News: {{ news.title }}</h1>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Update News</button>
-</form>
+{% if user == news.author%}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update News</button>
+    </form>
+{% else %}
+<h1>you don't have access to the changes</h1>
+{% endif %}
 {% endblock %}
 
 

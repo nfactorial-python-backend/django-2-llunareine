@@ -5,14 +5,17 @@
 <div class="card-container">
     {% for news_item in news_list %}
     <div class="news-card">
+
         <img src="{% static 'img/maxresdefault.png' %}" alt="News Image">
         <div class="news-text">
             <h2><a href="{% url 'news:news_detail' news_item.pk %}">{{ news_item.title }}</a></h2>
             <p>{{ news_item.content }}</p>
             <p>Created at: {{ news_item.created_at }}</p>
+
             <a href="{% url 'news:news_update' news_id=news_item.pk %}" class="edit-button">Edit News</a>
         </div>
     </div>
     {% endfor %}
 </div>
 {% endblock %}
+

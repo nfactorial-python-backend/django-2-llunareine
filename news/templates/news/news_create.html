@@ -6,12 +6,17 @@
     <div class="post-logo-container">
         <img src="{% static 'img/POST.png' %}" alt="Post Logo">
     </div>
+    {% if user.is_authenticated %}
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Add News</button>
     </form>
+    {% else %}
+    <p>Доступно для авторизованных.</p>
+    {% endif %}
 </div>
 </form>
 </div>
 {% endblock %}
+
