@@ -3,9 +3,13 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.decorators import method_decorator
+from rest_framework import generics
+from rest_framework.decorators import api_view
 
 from .models import News, Comments
 from django.http import HttpResponse, HttpResponseRedirect
+
+from .serializers import NewsSerializer
 
 
 from .forms import NewsForm, SignUpForm
@@ -106,4 +110,13 @@ def sign_up(request):
 
    return render(request, 'registration/sign_up.html', {"form": form})
 
+
+
+class  NewsAddView(generics.ListCreateAPIView):
+    queryset = News.objects.all()
+    serializer_class = NewsSerializer
+
+class NewsDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = News.objects.all()
+    serializer_class = NewsSerializer
 

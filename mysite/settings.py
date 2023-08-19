@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework',
     'news.apps.NewsConfig',
     "debug_toolbar",
     'django.contrib.admin',
