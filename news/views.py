@@ -3,8 +3,9 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.decorators import method_decorator
-from rest_framework import generics
+from rest_framework import generics, status
 from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
 from .models import News, Comments
 from django.http import HttpResponse, HttpResponseRedirect
@@ -119,4 +120,18 @@ class  NewsAddView(generics.ListCreateAPIView):
 class NewsDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = News.objects.all()
     serializer_class = NewsSerializer
+
+@api_view(['GET', 'POST'])
+def news_add(request):
+   if request.method == 'GET':
+       query_set = News.objects.all()
+       serializer = NewsSerializer(query_set, many=True)
+       return Response(serializer.data, status=status.HTTP_200_OK)
+
+   elif request.method == 'POST':
+       serializer = NewsSerializer(data=request.data)
+       if serializer.is_valid():
+           serializer.save()
+           return Response(serializer.data, status=status.HTTP_201_CREATED)
+       return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
 
